@@ -1,0 +1,16 @@
+f = open('1000-no-keyphrase.txt', 'r', encoding='utf-8')
+g = open('1000-retrieval.txt', 'r', encoding='utf-8')
+uniform = set()
+for line in g:
+    line_split = line.split('/')
+    word = line_split[4].lower()
+    uniform.add(word)
+retrieval = set()
+for line in f:
+    line_split = line.split('/')
+    word = line_split[4].lower()
+    retrieval.add(word)
+fg = uniform.intersection(retrieval)
+print(len(fg))
+f.close()
+g.close()
